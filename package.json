@@ -1,0 +1,31 @@
+{
+  "name": "weatherapi",
+  "version": "0.0.1",
+  "description": "This API gets weather with a city name",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --timeout=25000",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexinGtz/WeatherAPI.git"
+  },
+  "author": "Alex Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexinGtz/WeatherAPI/issues"
+  },
+  "homepage": "https://github.com/AlexinGtz/WeatherAPI#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
+  }
+}
