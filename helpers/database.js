@@ -40,6 +40,7 @@ exports.query = (query) => {
   });
 };
 
+//end connection with the database
 exports.end = () => {
   return connection.end();
 };
