@@ -4,6 +4,8 @@ const expect = require("chai").expect;
 const db = require("../helpers/database");
 const weatherController = require("../controllers/weatherController");
 
+const milisecondsOld = 20000;
+
 describe("Weather Conroller", () => {
     
   after(() => {
@@ -39,7 +41,7 @@ describe("Weather Conroller", () => {
           done();
         })
         .catch((err) => console.log(err));
-    }, 2000);
+    }, milisecondsOld);
   });
 
   it("Should return 'Fetched from database'", (done) => {

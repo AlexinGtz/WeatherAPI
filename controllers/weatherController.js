@@ -1,12 +1,12 @@
-//External requires
+//External imports
 const axios = require("axios");
-//Internal requires
+//Internal imports
 const logger = require("../helpers/logger");
 const db = require("../helpers/database");
 const cypher = require("../helpers/cypher");
 
 //Hoy many miliseconds to wait until we reach from API
-const milisecondsOld = 2000;
+const milisecondsOld = 20000;
 
 /**
  * getWeather API endpoint. Reaches for actual weather from any city. 
@@ -72,14 +72,12 @@ fetchNewWeather = (city) => {
 
     //Make a request to Openweather API sending city and APIKey in URL
     axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`
-      )
+      .get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`)
       .then((response) => {
         //Check the response data, to know if it succeded
-        if (response.data.cod !== 200) {
+        if (response.data.cod === 404) {
           //If the city is not found, we reject the promise
-          reject(new Error("City Not Found"));
+          reject("City Not Found");
         }
         //Get all data from the response
         let { temp, pressure, humidity } = response.data.main;
